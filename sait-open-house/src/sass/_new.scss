@@ -1,1 +1,49 @@
 // custom css
+// variables
+$darkBlue: #005eb8;
+$lightBlue: #2c7aca; 
+
+.g-banner-content{
+    
+}
+a.btn{
+    &.big{
+        padding:0.25em 0.5em;
+        border:2px solid $darkBlue;
+        background:#fff;
+        &:hover{
+            background:$darkBlue;
+            color:#fff;
+        }
+    }
+}
+.new-row-wrap{
+    position:relative;
+    overflow:hidden;
+    .new-row{
+        width:calc(100% + 4em);
+        transform: rotate(-2deg);
+        position:relative;
+        background:$darkBlue;
+        margin:-2em;
+        &:nth-child(even){
+            background:$lightBlue;
+            transform: rotate(2deg);
+            .info{
+                transform:rotate(-2deg);
+            }
+        }
+        .info{
+            top:1em;
+            left:1em;
+            transform:rotate(2deg); 
+            width:100%;
+            max-width:800px;
+            margin:1em auto;
+            padding:4em;
+            h3, p{
+                color:#fff;
+            }
+        }
+    }
+}

@@ -8,7 +8,7 @@ const rename = require('gulp-rename')
 
 const paths = {
     styles: {
-        src: 'src/styles/**/*.scss',
+        src: 'src/sass/**/*.scss',
         dest: 'css/'
     }, 
     scripts: {
@@ -23,7 +23,7 @@ const paths = {
 
 function styles () {
     return gulp.src(paths.styles.src)
-        .pipe(sass({ outputStyle : 'expanded' }))
+        .pipe(sass({ outputStyle : 'compressed' }))
         .pipe(rename({
             basename: 'main',
             suffix: '.min'

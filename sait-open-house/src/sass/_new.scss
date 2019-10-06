@@ -1,12 +1,31 @@
 // custom css
+
 // variables
 $darkBlue: #005eb8;
 $lightBlue: #2c7aca; 
+$red: #ca2422;
 
-.g-banner-content{
-    
+// mixins
+@mixin breakpoint($point) {
+    @if $point == large {
+    @media (min-width: 70em) { @content ; }
+   }
+    @else if $point ==  medium {
+    @media (min-width: 64em) { @content ; }
+   }
+    @else if $point == tablet {
+    @media (min-width: 45em) { @content ; }
+   }
+    @else if $point == small {
+    @media (max-width: 37.5em)  { @content ; }
+   }
+}
+
+.g-apply-banner{
+    background:url('..//img/open-house-2017-background.jpg') !important;
 }
 a.btn{
+    display:inline-block;
     &.big{
         padding:0.25em 0.5em;
         border:2px solid $darkBlue;
@@ -20,29 +39,62 @@ a.btn{
 .new-row-wrap{
     position:relative;
     overflow:hidden;
+    padding:2em 0;
+    @include breakpoint(tablet){
+        padding:3em 0;
+    }
     .new-row{
         width:calc(100% + 4em);
-        transform: rotate(-2deg);
-        position:relative;
-        background:$darkBlue;
+        transform: rotate(-1deg);
+        position:relative;        
         margin:-2em;
+        background-color:$darkBlue;
+        background-size:auto 100%;
+        background-position: center right;
+        background-repeat:no-repeat;
+        @include breakpoint(medium){
+            margin:-3em -2em;
+        }
         &:nth-child(even){
-            background:$lightBlue;
-            transform: rotate(2deg);
+            transform: rotate(1deg);
+            background-color:$lightBlue;            
+            background-position:center left;
             .info{
-                transform:rotate(-2deg);
+                transform:rotate(-1deg);
             }
         }
+        a.big.btn{
+            border-color:$lightBlue;
+            &:hover{
+                background:$lightBlue;
+            }
+        }
+        
         .info{
             top:1em;
             left:1em;
-            transform:rotate(2deg); 
+            transform:rotate(1deg); 
             width:100%;
             max-width:800px;
             margin:1em auto;
             padding:4em;
             h3, p{
                 color:#fff;
+            }
+            a{
+                color:#fff;
+                text-decoration: underline;
+                &:hover{
+                    color:$red;
+                }
+                &.big.btn{
+                    color:$darkBlue;
+                    margin:0.5em 0;
+                    text-decoration: none;
+                    &:hover{
+                        color:#fff;
+                    }
+                }
             }
         }
     }
